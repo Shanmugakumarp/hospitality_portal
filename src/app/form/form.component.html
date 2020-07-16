@@ -6,29 +6,29 @@
 <div class="ui-fluid form-style">   
     <div class="p-field">
         <label for="firstname">Firstname</label>
-        <input id="firstname" [(ngModel)]="model.firstname" type="text" pInputText> 
+        <input id="firstname" [(ngModel)]="model['firstname']" type="text" pInputText> 
     </div>
     <div class="p-field">
         <label for="lastname">Lastname</label>
-        <input id="lastname" [(ngModel)]="model.lastname" type="text" pInputText> 
+        <input id="lastname" [(ngModel)]="model['lastname']" type="text" pInputText> 
     </div>
     <div class="p-formgroup-inline">
         <div class="p-field-checkbox">
-            <p-radioButton name="gender" value="male" [(ngModel)]="model.gender" inputId="male"></p-radioButton>
+            <p-radioButton name="gender" value="male" [(ngModel)]="model['gender']" inputId="male"></p-radioButton>
             <label for="gender">Male</label>
         </div>
         <div class="p-field-checkbox">
-            <p-radioButton name="female" value="female" [(ngModel)]="model.gender" inputId="female"></p-radioButton>
+            <p-radioButton name="female" value="female" [(ngModel)]="model['gender']" inputId="female"></p-radioButton>
             <label for="female">Female</label>
         </div>
     </div>
     <div class="p-field">
         <label for="city">City</label>
-        <input id="city" type="text" [(ngModel)]="model.city" pInputText> 
+        <input id="city" type="text" [(ngModel)]="model['city']" pInputText> 
     </div>
     <div class="p-field">
         <label for="age">Age</label>
-        <input id="age" type="number" [(ngModel)]="model.age" pInputText> 
+        <input id="age" type="number" [(ngModel)]="model['age']" pInputText> 
     </div>
     <div class="submit-area">
         <button class="submit-btn" pButton type="button" label="Submit" [disabled]="!validate()" (click)="onSubmit()"></button>
