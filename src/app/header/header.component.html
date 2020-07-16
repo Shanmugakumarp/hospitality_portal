@@ -1,0 +1,17 @@
+<div class="header-comp">
+    <div class="title">
+        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+        <button type="button" pButton icon="pi pi-bars" class="menu-btn" (click)="menu.toggle($event)"></button>
+        <span class="title-text">
+            Hospitality Portal
+        </span>
+    </div>
+    <div class="clock">
+        <span>
+            {{moment.format("MMM Do YYYY")}}
+        </span>
+        <span style="margin-top: 5px;">
+            {{moment.format("h:mm:ss a")}}
+        </span>
+    </div>
+</div>
