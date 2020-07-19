@@ -1,4 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonService } from './../shared/common-service';
+import {ConfirmationService} from 'primeng/api';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -6,9 +10,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
-  @Output()
-  addPatient: EventEmitter<object> = new EventEmitter<object>();
 
   public model: object = {
     firstname: '',
@@ -18,15 +19,21 @@ export class FormComponent implements OnInit {
     city: ''
   }
 
-  constructor() { }
+  constructor(private commonService: CommonService, 
+    private router: Router,
+    private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    alert(`${this.model['firstname']} ${this.model['lastname']} added successfully`);
-    this.addPatient.emit(this.model);
-    console.log(this.model);
+    this.commonService.setList({...this.model, name: `${this.model['firstname']} ${this.model['lastname']}`});
+    this.confirmationService.confirm({
+      message: 'Patient data added successfully, please proceed to view patient list',
+      accept: () => {
+          this.router.navigate(['table'])
+      }
+  });
   }
 
   validate() {

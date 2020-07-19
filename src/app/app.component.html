@@ -1,4 +1,6 @@
 <div class="app-comp">
   <app-header (menuChange)="onMenuChange($event)"></app-header>
-  <app-content [menu]="menu"></app-content>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

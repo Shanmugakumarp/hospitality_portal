@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonService } from './../shared/common-service';
 
 
 @Component({
@@ -7,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
-  @Input() patientList;
+  public patientList: Array<Object> = []
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
+    this.patientList = this.commonService.patientList;
   }
 
 }

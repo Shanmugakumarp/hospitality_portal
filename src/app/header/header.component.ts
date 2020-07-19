@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   public moment = moment();
   public items: MenuItem[];
 
-  constructor() { }
+  constructor(private router: Router ) { }
 
   ngOnInit(): void {
     setInterval(() => {
@@ -25,11 +26,11 @@ export class HeaderComponent implements OnInit {
 
     this.items = [{
       label: 'Register Patient',
-      command: () => this.menuChange.emit('Register Patient')
+      command: () => this.router.navigate(['/'])
     },
     {
       label: 'Patient Details',
-      command: () => this.menuChange.emit('Patient Details')
+      command: () => this.router.navigate(['table'])
     }];
   }
 }
